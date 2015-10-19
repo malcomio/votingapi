@@ -50,14 +50,15 @@ class VoteCreationTest extends WebTestBase {
   protected function setUp() {
     parent::setUp();
 
-//    $this->node = $this->drupalCreateNode();
-//    $this->logged_user = $this->drupalCreateUser();
-//    $this->drupalLogin($this->logged_user);
-
-//    $this->drupalCreateContentType(array(
-//      'type' => 'page',
-//      'name' => 'Basic page'
-//    ));
+    // Create Basic page and Article node types.
+    if ($this->profile != 'standard') {
+      $node_type = $this->drupalCreateContentType(array(
+        'type' => 'page',
+        'name' => 'Basic page',
+        'display_submitted' => FALSE,
+      ));
+      node_add_body_field($node_type);
+    }
 
     $this->logged_user = $this->drupalCreateUser();
 
