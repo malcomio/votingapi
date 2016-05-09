@@ -34,6 +34,10 @@ function votingapi_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_entity_delete().
  */
 function votingapi_entity_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  // Only act on content entities.
+  if (!($entity instanceof \Drupal\Core\Entity\FieldableEntityInterface)) {
+    return;
+  }
   // Delete all votes and result entries for the deleted entities
   if (!($entity instanceof \Drupal\votingapi\VoteInterface)) {
     $vote_storage = \Drupal::entityManager()->getStorage('vote');
