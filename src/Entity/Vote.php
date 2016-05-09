@@ -216,7 +216,7 @@ class Vote extends ContentEntityBase implements VoteInterface {
       ->setDefaultValue(time());
 
     $fields['vote_source'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Value Type'))
+      ->setLabel(t('Vote Source'))
       ->setDescription(t('The IP from the user who submitted the vote.'))
       ->setDefaultValueCallback('Drupal\votingapi\Entity\Vote::getCurrentIp')
       ->setSettings(array(
