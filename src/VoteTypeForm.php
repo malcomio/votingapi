@@ -146,6 +146,6 @@ class VoteTypeForm extends EntityForm {
     }
 
     $this->entityManager->clearCachedFieldDefinitions();
-    $form_state->setRedirectUrl($type->urlInfo('collection'));
+    $form_state->setRedirectUrl($type->toUrl('collection'));
   }
 }
