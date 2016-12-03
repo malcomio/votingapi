@@ -1,0 +1,30 @@
+id: d6_vote
+label: Votes
+migration_tags:
+  - Drupal 6
+deriver: Drupal\node\Plugin\migrate\D6NodeDeriver
+source:
+  plugin: d6_vote
+process:
+      vote_id
+      content_type:
+      content_id:
+      value:
+      value_type:
+      tag:
+      uid: user_id
+      timestamp:
+      vote_source:
+
+#  unmapped d6 fields.
+#  tnid
+#  translate
+#  moderate
+#  comment
+
+destination:
+  plugin: entity:vote
+migration_dependencies:
+  required:
+    - d6_user
+    - d6_node_type
